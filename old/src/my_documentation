@@ -1,0 +1,32 @@
+all this work must be done in a vitual machine, and to create a virtual machine :
+    {
+        docker-machine start
+        docker-machine env
+        eval "$(docker-machine env default)"
+    }
+
+building ngnix container
+    {
+        docker build -t ngnix_container ./src
+        docker run -it -p 80 ngnix_container (it runs the image that has been created with ./src dockerfile)
+        (enter the conatiner mode)
+        apk update
+        apk add nginx
+        adduser -g 'Nginx www user' -h /home/www/ wwwcbz {
+                                                            -g 'Nginx www user' : Set general information about the account wwwcbz
+                                                            -h /home/www/ : The account home directory
+                                                            wwwcbz : The account name
+                                                            kait/kait
+                                                        }
+    }
+nginx configuration
+    {
+        ip a (to get the server IP adress)
+        put the ip in ngnix_config
+        apk add openrc (requirement)
+         rc-update add nginx default
+         /etc/init.d/nginx start OR rc-service nginx start OR service nginx start (to start the ngnix if not already starting)
+        !!!!!! and if you want to stop ngnix you type : rc-service nginx stop
+        !!!!!! if you wanna see ngnix status rc-service nginx status !!!!!
+
+    }
