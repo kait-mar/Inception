@@ -1,1 +1,22 @@
-FROM Debian
+FROM debian
+RUN apt-get update -y -qq
+RUN apt-get upgrade -y -qq
+RUN apt-get install nginx -y -qq
+COPY nginx_conf /var/www
+RUN mv /var/www/nginx_conf /var/www/default
+RUN cp /var/www/default /etc/nginx/sites-available/default
+COPY nginx_TLS /var/www/
+RUN cp /var/www/nginx_TLS /var/www/nginx.conf
+RUN mv /var/www/nginx.conf /etc/nginx/
+RUN apt-get install openssl
+COPY nginx-selfsigned.crt /etc/ssl/certs/
+COPY nginx-selfsigned.key etc/ssl/private/
+COPY self-signed.conf /etc/nginx/snippets
+CMD ["nginx", "-g", "daemon off;"]
+#RUN apt-get install systemd systemd-sysv -y
+#RUN systemctl enable nginx
+#/etc/init.d/nginx start
+#RUN rc-service nginx start
+#COPY /src/ /var/www/html
+#EXPOSE 80
+#RUN apt -y -qq update

@@ -1,5 +1,5 @@
 version: "3.9"
 services:
-    nginx:
+    nginx_service:
       build: ./src/nginx
-      ports: 443
+      ports: [443]
