@@ -1,5 +1,23 @@
-version: "3.9"
+version: "3"
 services:
     nginx_service:
       build: ./src/nginx
-      ports: [443]
+      ports: [443:443]
+
+####################################
+
+    mariadb_service:
+      build: ./src/MariaDB
+      ports: [3306:3306]
+
+#####################################
+
+    wordpress_service:
+      build: ./src/wordpress
+      ports: [9000:9000]
+      depends_on:
+        - nginx_service
+        - mariadb_service
+
+
+      
