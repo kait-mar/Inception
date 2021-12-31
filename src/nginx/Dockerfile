@@ -8,10 +8,15 @@ RUN cp /var/www/default /etc/nginx/sites-available/default
 COPY nginx_TLS /var/www/
 RUN cp /var/www/nginx_TLS /var/www/nginx.conf
 RUN mv /var/www/nginx.conf /etc/nginx/
+RUN apt install apt-utils -y
 RUN apt-get install openssl
 COPY nginx-selfsigned.crt /etc/ssl/certs/
 COPY nginx-selfsigned.key etc/ssl/private/
 COPY self-signed.conf /etc/nginx/snippets
+COPY php-fcgi /etc/init.d
+RUN update-rc.d php-fcgi defaults
+#CMD tail -f /dev/null
+#RUN /etc/init.d/nginx start
 CMD ["nginx", "-g", "daemon off;"]
 #RUN apt-get install systemd systemd-sysv -y
 #RUN systemctl enable nginx

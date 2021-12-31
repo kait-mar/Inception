@@ -19,7 +19,6 @@
 # Default server configuration
 #
 
-
 server {
         listen 443 ssl default_server;
         listen [::]:443 ssl default_server;
@@ -45,29 +44,40 @@ server {
         #include snippets/self-signed.conf;
 
         #ssl on;
-        root /var/www/html;
+        root /var/www/html/wordpress;
 
         # Add index.php to the list if you are using PHP
-        index index.html index.htm index.nginx-debian.html;
+        index  index.php index.html index.htm index.nginx-debian.html;
     error_log /var/log/nginx/error.log debug;
         server_name _;
 
         location / {
+                root /var/www/html/wordpress;
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
                 try_files $uri $uri/ =404;
         }
 
+        
+
         # pass PHP scripts to FastCGI server
         #
-        #location ~ \.php$ {
+        location ~ \.php$ {
+                include /etc/nginx/fastcgi_params;
         #       include snippets/fastcgi-php.conf;
         #
         #       # With php-fpm (or other unix sockets):
-        #       fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+               #fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+               #this wordpress was added by me
+               fastcgi_pass wordpress:9000;
+               fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               fastcgi_index index.php;
+
         #       # With php-cgi (or other tcp sockets):
-        #       fastcgi_pass 127.0.0.1:9000;
-        #}
+
+               #fastcgi_pass 127.0.0.1:9000;
+               #fastcgi_pass 172.24.0.3:9000;
+        }
 
         # deny access to .htaccess files, if Apache's document root
         # concurs with nginx's one
@@ -96,3 +106,6 @@ server {
 #               try_files $uri $uri/ =404;
 #       }
 #}
+
+#this lines were added by me !!!!!!!!!!!!!!!!!1
+

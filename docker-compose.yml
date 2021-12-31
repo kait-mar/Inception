@@ -1,23 +1,58 @@
 version: "3"
 services:
-    nginx_service:
-      build: ./src/nginx
-      ports: [443:443]
 
-####################################
-
-    mariadb_service:
+    mariadb:
       build: ./src/MariaDB
+      container_name: mariadb
       ports: [3306:3306]
+      env_file: .env
+      restart: always
+      environment:
+        - MYSQL_DATABASE=wordpress
+      #This option allows you to add additional environment variables, beyond those defined in your .env file(Because this is non-sensitive information)
+      networks:
+        - app-network
+      volumes:
+        - db:/var/lib/mysql #change volumes to /home/kait-mar/data
+     # command: '--default-authentication-plugin=mysql_native_password'
 
 #####################################
 
-    wordpress_service:
+    wordpress:
       build: ./src/wordpress
+      container_name: wordpress
       ports: [9000:9000]
       depends_on:
-        - nginx_service
-        - mariadb_service
+        - mariadb
+      restart: always
+      env_file: .env
+      environment:
+        - WORDPRESS_DB_HOST=mariadb:3306 #in wp-config.php we have define( 'DB_HOST', 'localhost' )!!!!!
+        - WORDPRESS_DB_USER=$DB_USER
+        - WORDPRESS_DB_PASSWORD=$DB_PASSWORD
+        - WORDPRESS_DB_NAME=wordpress_database
+      networks:
+        - app-network
+      volumes:
+        - wordpress:/var/www/html
+
+#######################################
+
+    nginx:
+      build: ./src/nginx
+      container_name: nginx
+      ports: [443:443]
+      restart: always
+      depends_on:
+        - wordpress
+      networks:
+        - app-network
 
 
-      
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  wordpress:
+  db:
