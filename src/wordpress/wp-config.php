@@ -26,10 +26,10 @@ define( 'DB_NAME', 'wordpress_database' );
 define( 'DB_USER', 'kait-mar' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'kHaoula@1234' );
+define( 'DB_PASSWORD', 'kHaoula@1998' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'inception_mariadb_1' );
+define( 'DB_HOST', 'mariadb' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

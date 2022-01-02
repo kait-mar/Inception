@@ -15,6 +15,7 @@ COPY nginx-selfsigned.key etc/ssl/private/
 COPY self-signed.conf /etc/nginx/snippets
 COPY php-fcgi /etc/init.d
 RUN update-rc.d php-fcgi defaults
+#RUN chown -R www-data:www-data * && chmod 755 {dir} && chmod 644 {files}
 #CMD tail -f /dev/null
 #RUN /etc/init.d/nginx start
 CMD ["nginx", "-g", "daemon off;"]
