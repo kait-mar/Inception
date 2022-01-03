@@ -12,8 +12,8 @@ services:
       #This option allows you to add additional environment variables, beyond those defined in your .env file(Because this is non-sensitive information)
       networks:
         - app-network
-      volumes:
-        - db:/var/lib/mysql #change volumes to /home/kait-mar/data
+      #volumes:
+      #  - db:/var/lib/mysql #change volumes to /home/kait-mar/data
       #command: '--default-authentication-plugin=mysql_native_password'
 
 #####################################
@@ -34,8 +34,8 @@ services:
         # 172.22.0.3 check if the docker ip changes !!
       networks:
         - app-network
-      volumes:
-        - wordpress:/var/www/html
+      #volumes:
+      #  - wordpress:/var/www/html
 
 #######################################
 
@@ -48,16 +48,18 @@ services:
         - wordpress
       networks:
         - app-network
-      volumes:
-        - wordpress:/var/www/html
+      #volumes:
+      #  - wordpress:/var/www/html
 
 
 networks:
   app-network:
     driver: bridge
 
-volumes:
-  wordpress:
-  db:
+#volumes:
+#  wordpress:
+#  db:
 
 #add expose to dockerfiles and go for command authentificat in mariadb
+# in order to change your server name to kait-mar.com .. go to /etc/hosts and add a line of 127.0.0.1 kait-mar ... to redirect localhost to kait-mar...
+#i won't need the ports in wordpress and mariadb

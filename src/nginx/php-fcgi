@@ -1,5 +1,6 @@
 #!/bin/bash
-BIND=wordpress:9000
+#BIND=wordpress:9000
+BIND=127.0.0.1:9000
 USER=www-data
 PHP_FCGI_CHILDREN=15
 PHP_FCGI_MAX_REQUESTS=1000
