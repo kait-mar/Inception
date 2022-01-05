@@ -8,14 +8,17 @@ COPY default /etc/nginx/sites-available/
 #COPY nginx_TLS /var/www/
 #RUN cp /var/www/nginx_TLS /var/www/nginx.conf
 #RUN mv /var/www/nginx.conf /etc/nginx/
-RUN apt install apt-utils -y
+#RUN apt install apt-utils -y
 RUN apt-get install openssl
 COPY nginx-selfsigned.crt /etc/ssl/certs/
 COPY nginx-selfsigned.key etc/ssl/private/
 COPY self-signed.conf /etc/nginx/snippets
 #COPY php-fcgi /etc/init.d
 #RUN update-rc.d php-fcgi defaults
-#RUN chown -R www-data:www-data * && chmod 755 {dir} && chmod 644 {files}
+RUN chown -R www-data:www-data /var/www
+#RUN chmod 755 {dir} && chmod 644 {files}
+RUN find /var/www/ -type d -exec chmod 755 {} \;
+RUN find /var/www/ -type f -exec chmod 644 {} \;
 #CMD tail -f /dev/null
 #RUN /etc/init.d/nginx start
 CMD ["nginx", "-g", "daemon off;"]

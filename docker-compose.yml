@@ -5,10 +5,10 @@ services:
       build: ./src/MariaDB
       container_name: mariadb
       ports: [3306:3306]
-      env_file: .env
-      restart: always
-      environment:
-        - MYSQL_DATABASE=wordpress
+     # env_file: .env
+      restart: unless-stopped
+      #environment:
+       # - MYSQL_DATABASE=wordpress
       #This option allows you to add additional environment variables, beyond those defined in your .env file(Because this is non-sensitive information)
       networks:
         - app-network
@@ -24,13 +24,13 @@ services:
       ports: [9000:9000]
       depends_on:
         - mariadb
-      restart: always
-      env_file: .env
-      environment:
-        - WORDPRESS_DB_HOST=mariadb:3306 #in wp-config.php we have define( 'DB_HOST', 'localhost' )!!!!!
-        - WORDPRESS_DB_USER=$DB_USER
-        - WORDPRESS_DB_PASSWORD=$DB_PASSWORD
-        - WORDPRESS_DB_NAME=wordpress_database
+      restart: unless-stopped
+      #env_file: .env
+      #environment:
+     #   - WORDPRESS_DB_HOST=mariadb:3306 #in wp-config.php we have define( 'DB_HOST', 'localhost' )!!!!!
+      #  - WORDPRESS_DB_USER=$DB_USER
+       # - WORDPRESS_DB_PASSWORD=$DB_PASSWORD
+        #- WORDPRESS_DB_NAME=wordpress_database
         # 172.22.0.3 check if the docker ip changes !!
       networks:
         - app-network
@@ -43,7 +43,7 @@ services:
       build: ./src/nginx
       container_name: nginx
       ports: [443:443]
-      restart: always
+      restart: unless-stopped
       depends_on:
         - wordpress
       networks:

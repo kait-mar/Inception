@@ -44,7 +44,7 @@ server {
         #include snippets/self-signed.conf;
 
         #ssl on;
-        root /var/www/html/; #wordpress volume in !!!????????
+        root /var/www/html/wordpress; #wordpress volume in !!!????????
 
         # Add index.php to the list if you are using PHP
         index   index.php index.html ; # index.nginx-debian.html;
@@ -52,10 +52,11 @@ server {
         server_name _;
 
         location / {
-                root /var/www/html;
+                #root /var/www/html;
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
+                try_files $uri $uri/ /index.php?$args;
+                #try_files $uri $uri/ =404;
         }
 
         

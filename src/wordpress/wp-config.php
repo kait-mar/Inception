@@ -26,7 +26,7 @@ define( 'DB_NAME', 'wordpress_database' );
 define( 'DB_USER', 'kait-mar' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'kHaoula@1998' );
+define( 'DB_PASSWORD', 'login123' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'mariadb' );
@@ -79,6 +79,7 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
