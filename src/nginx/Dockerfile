@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:buster
 RUN apt-get update -y -qq
 RUN apt-get upgrade -y -qq
 RUN apt-get install nginx -y -qq
