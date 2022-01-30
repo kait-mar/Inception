@@ -1,0 +1,8 @@
+- How Docker and docker-compose work
+- The difference between a Docker image used with docker-compose and without docker-compose
+- The beneﬁt of Docker compared to VMs
+- The pertinence of the directory structure required for this project
+- a simple explanation of docker-network.
+-The SSL/TLS certiﬁcate doesn't have to be recognized.
+- A self-signed certiﬁcate warning may appear.
+!!!!!!!!!!! ps you shouldn't see the WordPress Installation page !!!!!!!!!!!!!!
