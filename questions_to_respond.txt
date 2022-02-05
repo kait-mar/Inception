@@ -7,3 +7,29 @@
 - A self-signed certiﬁcate warning may appear.
 !!!!!!!!!!! ps you shouldn't see the WordPress Installation page !!!!!!!!!!!!!!
 check the privileges of the root vs normal user and what's the difference between them
+** add the login.42.fr to hosts
+*** the containers were built by tail-f ?
+*** add the paths for volumes
+***wordpress {
+    -Ensure that you can add a comment using the available WordPress user.
+    -Sign in with the administrator account to access the Administration dashboard. How ??
+    -From the Administration dashboard, edit a page. Verify on the website that the page has been updated. (edit from where ? the site ? !!)
+}
+*****mariadb {
+    Try to login into the SQL database as root but with no
+password. If the login is successful, the evaluation process ends now.
+- Try to login into the SQL database with the user account and its
+password. Verify that the database is not empty.
+}
+
+**** You have to reboot the virtual
+machine. Once it has restarted, launch docker-compose again. Then,
+verify that everything is functional, and that both WordPress and
+MariaDB are configured. The changes you made previously to the
+WordPress website should still be here.
+
+
+answers :
+- the ssl certificate stands for (Secure Sockets Layer), it secures the connection between the user and the sites by encryption the information. 
+    this information could be anything sensitive or personal which can include credit card numbers and other financial information, names and addresses.
+- TLS (Transport Layer Security) is just an updated, more secure, version of SSL.
