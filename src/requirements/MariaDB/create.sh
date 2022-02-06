@@ -1,11 +1,11 @@
 service mysql start
-mysql -u root "CREATE DATABASE wordpress_database; use wordpress_database; source wordpress.sql"
-mysql -u root "CREATE USER 'kait-mar'@'%' identified by 'login123';"
-mysql -u root "GRANT ALL PRIVILEGES on *.* to 'kait-mar'@'%' IDENTIFIED BY 'login123';"
-mysql -u root "GRANT ALL PRIVILEGES ON wordpress_database.* TO 'kait-mar'@'%';"
+echo "CREATE DATABASE wordpress_database;" | mysql -u root
+echo "CREATE USER 'kait-mar'@'%' identified by 'login123';" | mysql -u root
+#echo "GRANT ALL PRIVILEGES on *.* to 'kait-mar'@'%' IDENTIFIED BY 'login123';" | mysql -u root
+echo "GRANT ALL PRIVILEGES ON wordpress_database.* TO 'kait-mar'@'%' IDENTIFIED BY 'login123' ;" | mysql -u root
+echo "flush priviliges;" | mysql -u root
 mysql -u root wordpress_database < wordpress.sql
-mysql -u root -e "ALTER USER 'root'@'localhost' identified by 'root123' ; flush priviliges;"
-mysql -u root "FLUSH PRIVILEGES;"
+mysql -u root -e "ALTER USER 'root'@'localhost' identified by 'root123' ;"
 #service mysql stop
 #mysqld_safe --datadir="/var/lib/mysql"
 #to check if the database is empty or not

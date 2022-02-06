@@ -7,4 +7,6 @@ RUN chmod +rw /etc/mysql/my.cnf
 COPY create.sh /var
 COPY wordpress.sql /
 #RUN service mysql start
-CMD sh /var/create.sh && tail -f /dev/null
+CMD sh /var/create.sh 
+#&& /usr/bin/mysqld_safe
+#&& tail -f /dev/null
