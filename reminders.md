@@ -1,18 +1,20 @@
+# keep this notes in mind , and keep verifyin' that everything's respected
+
 - How Docker and docker-compose work
 - !!!!!!!!!!The difference between a Docker image used with docker-compose and without docker-compose
 - The beneﬁt of Docker compared to VMs
-- The pertinence of the directory structure required for this project
+- The pertinence of the required directory structure 
 - a simple explanation of docker-network.
 -The SSL/TLS certiﬁcate doesn't have to be recognized.
 - A self-signed certiﬁcate warning may appear.
 !!!!!!!!!!! ps you shouldn't see the WordPress Installation page !!!!!!!!!!!!!!
 !!!!!!!check the privileges of the root vs normal user and what's the difference between them
-** add the login.42.fr to hosts
+** add your domain kait-mar.42.fr to point on localhost
 *** the containers were built by tail-f ?
 *** add the paths for volumes
 ***wordpress {
     -Ensure that you can add a comment using the available WordPress user.
-    -Sign in with the administrator account to access the Administration dashboard. How ?? sign in ? wp-admin.the account registred in instalation is the administartion account ?
+    -Sign in with the administrator account to access the Administration dashboard.
     -From the Administration dashboard, edit a page. Verify on the website that the page has been updated. 
 }
 *****mariadb {
@@ -29,7 +31,6 @@ MariaDB are configured. The changes you made previously to the
 WordPress website should still be here.
 
 
-answers :
 - the ssl certificate stands for (Secure Sockets Layer), it secures the connection between the user and the sites by encryption the information. 
     this information could be anything sensitive or personal which can include credit card numbers and other financial information, names and addresses.
 - TLS (Transport Layer Security) is just an updated, more secure, version of SSL.
@@ -51,10 +52,21 @@ answers :
     This independence is the intention of containers—the ability to run multiple processes and apps separately from one another to make better use of your infrastructure. in a secure way.
 }
 -how docker-compose work {
-    Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration. 
+    Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. 
+    Then, with a single command, you create and start all the services from your configuration. 
 
 }
 ------------------------------------------------------
 
 -to check if the database is empty or not
 SELECT COUNT(DISTINCT `table_name`) AS TotalNumberOfTables FROM `information_schema`.`columns` WHERE `table_schema` = 'wordpress_database';
+
+php-fpm: an alternative service that connects your server(nginx-apache..) to php (since wordpress is php coded )
+fix the last error with stoping services!! (related to Unix sockets)
+---------
+get sure if u've correctly chosen the right way to connect them (by sockets or by tcp !!)
+----
+
+#Dear kait,
+#STOP TYPING. hehehehe and enjoy!
+#best regards, lol

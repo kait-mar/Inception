@@ -92,11 +92,6 @@ if ( ! defined( 'ABSPATH' ) ) {
         define( 'ABSPATH', __DIR__ . '/' );
 }
 
-$dotenv = Dotenv\Dotenv::create(__DIR__);
-if(file_exists(".env")) {
-    $dotenv->load();
-}
-
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
 ?>

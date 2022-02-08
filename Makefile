@@ -3,7 +3,7 @@ build:
 up:
 	docker-compose -f ./src/docker-compose.yml up --build -d $(c)
 down:
-	docker-compose -f ./src/docker-compose.yml down --volumes
+	docker-compose -f ./src/docker-compose.yml down
 clean:
 	docker rm -f $(docker ps -a -q)
 	docker rmi -f $(docker images -a -q)

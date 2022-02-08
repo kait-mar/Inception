@@ -9,4 +9,3 @@ COPY wordpress.sql /
 #RUN sh /var/create.sh
 #CMD sh /var/create.sh && mysqld
 CMD sh /var/create.sh && /usr/bin/mysqld_safe
-#&& tail -f /dev/null
