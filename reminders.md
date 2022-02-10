@@ -1,4 +1,5 @@
 # keep this notes in mind , and keep verifyin' that everything's respected
+### write here anything may help you to better understand the project using the docker and compose technologies!
 
 - How Docker and docker-compose work
 - !!!!!!!!!!The difference between a Docker image used with docker-compose and without docker-compose
@@ -67,6 +68,8 @@ fix the last error with stoping services!! (related to Unix sockets)
 ---------
 get sure if u've correctly chosen the right way to connect them (by sockets or by tcp !!)
 -------
+more ressources ==> check the notion note !
+
 ## Dear kait
 ### STOP TYPING. and enjoy :p
 #### best regards, lol
