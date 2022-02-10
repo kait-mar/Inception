@@ -46,6 +46,7 @@ WordPress website should still be here.
 }
 
 ----------------------------------------------------------
+
 -how docker work {
     The Docker technology uses the Linux kernel and features of the kernel.
     to separate processes so they can run independently. 
@@ -65,8 +66,7 @@ php-fpm: an alternative service that connects your server(nginx-apache..) to php
 fix the last error with stoping services!! (related to Unix sockets)
 ---------
 get sure if u've correctly chosen the right way to connect them (by sockets or by tcp !!)
-----
-
-#Dear kait,
-#STOP TYPING. hehehehe and enjoy!
-#best regards, lol
+-------
+## Dear kait
+### STOP TYPING. and enjoy :p
+#### best regards, lol

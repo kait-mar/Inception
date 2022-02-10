@@ -62,6 +62,3 @@ volumes:
 networks:
   app-network:
     driver: bridge
-
-
-# in order to change your server name to kait-mar.com .. go to /etc/hosts and add a line of 127.0.0.1 kait-mar ... to redirect localhost to kait-mar...
