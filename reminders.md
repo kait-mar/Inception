@@ -8,9 +8,7 @@
 - a simple explanation of docker-network.
 -The SSL/TLS certiﬁcate doesn't have to be recognized.
 - A self-signed certiﬁcate warning may appear.
-!!!!!!!!!!! ps you shouldn't see the WordPress Installation page !!!!!!!!!!!!!!
-!!!!!!!check the privileges of the root vs normal user and what's the difference between them
-** add your domain kait-mar.42.fr to point on localhost
+** add your domain kait-mar.42.fr to point on the site ip
 *** the containers were built by tail-f ?
 *** add the paths for volumes
 ***wordpress {
