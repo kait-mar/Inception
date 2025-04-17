@@ -8,8 +8,8 @@ then
     mysql -e "GRANT ALL PRIVILEGES ON wordpress_database.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}' ;"
     mysql -e "flush privileges;"
 
-    # Replace placeholder IP in wordpress.sql with the value of INSTANCE_IP
-    sed "s/localhost/${INSTANCE_IP}/g" wordpress.sql  > temp_wordpress.sql
+    # Replace placeholder IP and theme in wordpress.sql with INSTANCE_IP and twentytwentyfive
+    sed "s/localhost/${INSTANCE_IP}/g" wordpress.sql | sed "s/twentytwentytwo/twentytwentyfive/g" > temp_wordpress.sql
     mysql wordpress_database <  temp_wordpress.sql
 
     #mysql -e "SET PASSWORD FOR 'root'@'localhost' = '2ff898e158cd0311';"
