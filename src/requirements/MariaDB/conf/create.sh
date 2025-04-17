@@ -9,7 +9,7 @@ then
     mysql -e "flush privileges;"
 
     # Replace placeholder IP and theme in wordpress.sql with INSTANCE_IP and twentytwentyfive
-    sed "s/localhost/${INSTANCE_IP}/g" wordpress.sql | sed "s/twentytwentytwo/twentytwentyfive/g" > temp_wordpress.sql
+    sed "s/localhost/${INSTANCE_IP}/g" wordpress.sql | sed "s/twentytwentytwo/twentytwentyfour/g" > temp_wordpress.sql
     mysql wordpress_database <  temp_wordpress.sql
 
     #mysql -e "SET PASSWORD FOR 'root'@'localhost' = '2ff898e158cd0311';"
